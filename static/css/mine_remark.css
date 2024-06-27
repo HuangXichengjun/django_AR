@@ -1,0 +1,72 @@
+header{
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+.forum {
+    display: flex;
+    flex-wrap: wrap;/* 使元素直接换到下一行 */
+    margin: 20px;/* 所有四个边距都为20px */
+    align-items: center;
+}
+
+.thread {
+    
+    border: 1px solid #ddd;
+    /* margin-right: 20px; */
+    /* margin-left: 50px; */
+    margin: auto;/* 居中 */
+    margin-top: 30px;
+    padding: 10px;
+    width: calc(50% - 20px);/* 父类元素宽度-20px */
+}
+.thread>li{
+    list-style-type:none;
+}
+.title1{
+    margin-top: 0;
+}
+
+.name1 {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.content1 {
+    margin-top: 10px;
+}
+
+
+.round-box{
+    /*margin-top: 10px;*/
+    /*font-size: 10px;*/
+    margin-top: 25px;
+    width: 50px;        /* 矩形框的宽度 */
+    height: 25px;       /* 矩形框的高度 */
+    background-color: #7261cf; /* 矩形框的背景颜色 */
+    border: 1px solid #c4b4b4;  /* 矩形框的边框 */
+    border-radius: 2px;  /* 设置圆角的半径 */
+    text-align: center;   /* 文本居中对齐 */
+    /*line-height: 50px;*/   /* 垂直居中对齐文本 */
+    color: #fff;
+}
+.edit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.edit>a{
+    padding: 10px;
+    text-decoration: none;
+}
+.edit>a>div{
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.none {
+    text-align: center;
+    font-weight: bold;
+}

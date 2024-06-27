@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/search_results.css' %}" />
+<div class="forum1">
+    {% for model in results %}
+        <ul class="thread">
+            <li class="title1">{{model.title}}</li>
+            <li class="content1">{{model.content}}</li>
+            <li class="name1">{{model.name}}</li>
+            <li class="time1">{{model.created_at}}</li>
+        </ul>
+    {% empty %}
+        <li>没有任何帖子</li>
+    {% endfor %}
+</div>
+<script>
+    document.querySelectorAll('.thread').forEach(thread => {
+        thread.addEventListener('click', () => {
+        const content = thread.querySelector('.content1');
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        });
+    });
+</script>

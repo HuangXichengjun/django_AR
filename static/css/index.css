@@ -1,0 +1,465 @@
+.nav {
+    height: 60px;
+    background-color: #062d40;
+    display: flex;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+.nav_ul {
+    padding: 0; /*移除列表的内边距*/
+    list-style-type: none;  /*移除列表项前的项目符号。*/
+    display: flex;
+    width: 100%;
+  }
+  
+.nav_ul li {
+    display: inline;  /*将列表项显示为内联元素*/
+    text-align: center; /*使列表项内的文字居中显示*/
+    height: 100%;
+    width: 100%;
+  }
+  
+.nav_ul a {
+    display: inline-block;  /*将链接显示为内联块元素，允许设置宽度和高度*/
+    font-size: 1.5rem;  /*设置链接文字的大小为2倍根元素大小*/
+    text-decoration: none; /*移除链接的下划线*/
+    color: rgb(245, 241, 241);
+    transition-duration: 200ms; /* 设置链接在悬停时颜色变化的过渡时间为200毫秒*/
+    height: 100%;
+    width: 100%;
+  }
+.nav_ul a:hover {
+    color: white; /*当鼠标悬停在链接上时，将链接文字的颜色变为白色*/
+    text-shadow: 0 0 10px wheat; /*添加文字阴影效果，颜色为小麦色，模糊半径为10像素。*/
+    transition-duration: 200ms; /* 设置悬停效果的过渡时间为200毫秒*/
+    background-color: #ff6666;
+  }
+.index_2_inner,.index_3_inner{
+    position: relative; /* 设置定位，以便下拉内容可以绝对定位在触发元素上 */
+    cursor: pointer;
+    height: 100%;
+}
+.index_2_inner a,.index_3_inner a{
+    cursor: pointer;/* 鼠标悬停时鼠标指针变为指针形状 */
+    height: 100%;
+}
+.content{
+    display: none;
+    position: absolute; /* 绝对定位，相对于父容器定位 */
+    left: 0; /* 下拉内容左边界对齐触发元素 */
+    top: 0; /* 下拉内容顶部对齐触发元素顶部 */
+    background-color: #062d40; /* 下拉内容背景色 */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 添加阴影效果 */
+    z-index: 1000; /* 确保下拉内容在页面上层显示 */
+    padding: 0;
+    border: #ff6666;
+    overflow: hidden;
+}
+.index_2_inner:hover .content,.index_3_inner:hover .content{
+    animation: slideDown ease-out 0.1s;
+    left: 0;
+    opacity: 8;
+    display: block;
+    -webkit-animation: slideDown ease-out 0.1s;
+}
+  @keyframes slideDown {
+    0% {
+        opacity: 0;
+        top: -8px;
+    }
+    100% {
+        opacity: .8;
+        top: 0;
+    }
+}
+.index_2_inner .content li,.index_3_inner .content li
+{
+    display: inline;
+    text-align: center; /*使列表项内的文字居中显示*/
+    height: 100%;
+}
+.index_2_inner .content a,.index_3_inner .content a{
+    display: inline-block;
+    text-transform: lowercase;
+    text-decoration: none;
+    transition-duration: 200ms;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.content li:first-child {
+  padding-bottom: 12px;
+  border-top: none !important;}
+.content a:hover{
+  background-color: #ff6666;
+}
+.li_5 form{
+  display: inline-block;  /*将链接显示为内联块元素，允许设置宽度和高度*/
+  font-size: 1.5rem;  /*设置链接文字的大小为2倍根元素大小*/
+  text-decoration: none; /*移除链接的下划线*/
+  color: rgb(245, 241, 241);
+  transition-duration: 200ms; /* 设置链接在悬停时颜色变化的过渡时间为200毫秒*/
+  height: 100%;
+  width: 100%;
+}
+.li_5 button{
+  width:100%;
+  height:100%;
+  background-color: #062d40;
+  font-size: 1.5rem;
+  color: #fff;
+  background: none; /* 移除背景色 */
+  border: none; /* 移除边框 */
+  outline: none; /* 移除点击时的轮廓 */
+  box-shadow: none; /* 移除阴影效果 */
+  padding: 0; /* 可以设置为0或者根据需要调整内边距 */
+  margin: 0; /* 可以设置为0或者根据需要调整外边距 */
+  cursor: pointer; /* 鼠标悬停时显示手形图标 */
+}
+.li_5 button:hover{
+  color: white; /*当鼠标悬停在链接上时，将链接文字的颜色变为白色*/
+  text-shadow: 0 0 10px wheat; /*添加文字阴影效果，颜色为小麦色，模糊半径为10像素。*/
+  transition-duration: 200ms; /* 设置悬停效果的过渡时间为200毫秒*/
+  background-color: #ff6666;
+}
+  
+  /* 图片轮播部分 */
+  .slider {
+    position: relative;
+    /* 根据需要设置宽度 */
+    max-width: 100%;
+    /* max-width: screen; */
+    max-height: 100%;    overflow: hidden; /* 隐藏超出容器的图片 */
+  }
+  
+  .slides {
+    display: flex;
+    width: calc(100%); /* 假设有3张图片，总宽度为图片宽度的3倍 */
+    transition: transform 0.5s ease; /* 平滑过渡效果 */
+  }
+  
+  .slides img {
+    width: 100%; /* 图片宽度设为容器宽度 */
+    flex-shrink: 0; /* 防止图片被压缩 */
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+  /* 产品简介栏目 */
+  /* 标题 */
+  /* margin是元素与其他元素的距离，padding是元素内容与元素边界的距离 */
+  
+  .title-l1, .title-l2, .title-l3, .title-l4 {
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 500;
+    color: #323b4d;
+    line-height: 1.2em;
+    -webkit-line-clamp: 1;
+  }
+  .title-l1{
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 36px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+  
+  }
+  .title-l2{
+    display: flex;
+    margin:20px 0 0 0;
+    font-size: 15px;
+  }
+  
+  /* 主体 */
+  /* 产品名称列表 */
+  .produce-nav{
+    width: 100%;
+    height: auto;
+  }
+  .produces{
+    background: #30b01c;
+    width: 960px; /* 例如设置宽度为300像素 */
+    height: 130.67px; /* 例如设置高度为200像素 */
+    margin: auto; /* 使 div 水平居中 */
+  }
+  .produce-nav >div>ul{
+  padding: 0%;
+  display: flex;
+  flex-direction: row;
+  }
+  .produce-nav >div> ul > li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #323b4d;
+    font-weight: 500;
+    font-size: 20px;
+    /* line-height: 4em; */
+    text-align: center;
+    /* border-bottom: 4px solid #f0f5fb; */
+    cursor: pointer;
+  
+  }
+  
+  .produce-nav>div > ul > li:hover {
+    background: #88bc89; /* 鼠标悬浮时的背景色 */
+  }
+  .produce-nav >div> ul > li > div{
+    width: 192px;
+    height: 100px;
+  }
+  .produce-nav>div > ul > li > div > img{
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+  }
+  /* 选中时 */
+  .nav-choose{
+    border-bottom:4px solid #203aae;
+    transition: 0.5s;
+  }
+  
+  
+  /* 产品内容列表 */
+  .produce-contents{
+    width: 960px; /* 例如设置宽度为300像素 */
+    height: auto; /* 例如设置高度为200像素 */
+    margin: auto; /* 使 div 水平居中 */
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    position: relative;
+  }
+  .produce-content{
+    margin: 5% 10% 10% 0;
+    height: 690px;
+    width:960px;
+    background-color: #f4f4f4;
+    align-items: center;
+  }
+  .p-content{
+    height: 390px;
+    width:920px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #b4b3b3;
+    display: flex;
+    flex-direction: row;
+  }
+  .p-text1{
+    margin-left: 0;
+    margin-top: 0;
+    width: 460px;
+    height: 350px;
+  }
+  .p-text1-1{
+    margin-left: 40px;
+    margin-top: 50px;
+    margin-right: 40px;
+    width: 360px;
+    height: 300px;
+  }
+  .p-text1-1>h2{
+  text-align: left;
+  height: 50px;
+  padding-left: 50px;
+  padding-right: 30px;
+  }
+  .p-text1-1>p{
+    padding-left: 50px;
+  height: 200px;
+  text-align: left;
+  }
+  .p-text1-1>a{
+    padding-left: 50px;
+  height: 50px;
+  text-align: left;
+  }
+  .p-img1{
+    width: 460px;
+    height: 390px;
+    margin-right: 0;
+  
+  }
+  .p-img1>img{
+    width: 460px;
+    height: 390px;
+  }
+  /* 其他 */
+  select{
+      padding: 5px 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+  
+  /* 论坛入口 */
+  .home-forum{
+    width: 100%;
+    height: 300px;
+    background-color: #203aae;
+    display: flex;
+    flex-direction: row;
+  }
+  .b-img1{
+    width: 50%;
+    background-image: url('https://ar-scene-source.nosdn.127.net/b0d7b5d802318c4c93adf5a90f767466/index-v2/index/right02.png');
+    background-size: cover; /* 或 contain */
+    background-position: center;
+  }
+  .b-img2{
+    width: 50%;
+    background-image: url('https://ar-scene-source.nosdn.127.net/b0d7b5d802318c4c93adf5a90f767466/index-v2/index/left01.png');
+    background-size: cover; /* 或 contain */
+    background-position: center;
+  }
+  .forum1{
+    width:80%;
+    padding:10%;  
+    padding-left: 20%;
+  }
+  .forum1>h2{
+    font-size: 36px;
+    color: #fff;
+  }
+  .forum1>p{
+    margin-top: 25px;
+    color: #fff;
+  }
+  .forum1>a>div{
+    margin-top: 25px;
+    font-size: 25px;
+    border: 2px solid #0e092b;
+    background-color: #211468;
+  }
+  .round-box {
+    /* border: 2px solid #0e092b;
+    background-color: #0e092b; */
+    width: 100px;        /* 矩形框的宽度 */
+    height: 50px;       /* 矩形框的高度 */
+    background-color: #211468; /* 矩形框的背景颜色 */
+    border: 1px solid #000;  /* 矩形框的边框 */
+    border-radius: 10px;  /* 设置圆角的半径 */
+    text-align: center;   /* 文本居中对齐 */
+    line-height: 50px;   /* 垂直居中对齐文本 */
+    color: #ffffff;
+  }
+  
+  
+  
+  
+  /* 主页技术介绍内容 */
+  .home-forum{
+    margin: auto;
+  }
+  .produce-method{
+    width: 960px;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    margin-top: 100px;
+  }
+  .method{
+    position:relative;
+    margin: 20px 20px 0px 20px;
+    width: 400px;
+    border-bottom: #e6edfa 1px dashed;
+    border-left: #e6edfa 1px dashed;
+    border-right: #e6edfa 1px dashed;
+    background-color: #f5efef;  
+    transition: box-shadow 0.15s ease-in-out;
+    box-shadow: 5px 5px 5px 0px rgba(151, 143, 143, 0.3);
+  }
+  .method:hover{
+    box-shadow: 10px 10px 5px 0px rgba(151, 143, 143, 0.4);
+    border-top:solid 3px #203aae;
+  }
+  .method>a>h3,.method>p{
+    padding: 10px;
+    text-align: center;
+  }
+  .method>a>h3{
+    margin-left: 30%;
+    margin-right: 30%;
+    color: black;
+  }
+  .method>a>h3:hover{
+    border-bottom: #333 1px solid;
+    color: #203aae;
+  }
+  .method>div{
+    width:400px;
+  }
+  .method>div>img{
+    width: 400px;
+  }
+  
+  /* 尾栏 */
+  footer {
+    background-color: #333; /* 尾栏背景颜色 */
+    color: white; /* 文字颜色 */
+    text-align: center; /* 文字居中 */
+    padding: 20px 0; /* 上下内边距 */
+  
+    bottom: 0;
+  }
+  
+  .footer-content {
+    width: 80%; /* 内容宽度 */
+    margin: 0 auto; /* 水平居中 */
+  }
+  
+  .footer-content>nav>ul {
+    list-style: none; /* 移除列表项的默认样式 */
+    padding: 0;
+  }
+  
+  .footer-content>nav>ul >li {
+    display: inline; /* 列表项水平排列 */
+    margin-right: 10px; /* 列表项之间的间距 */
+  }
+  
+  .footer-content>nav>ul >li> a {
+    color: white; /* 链接颜色 */
+    text-decoration: none; /* 移除下划线 */
+  }
+  
+  .footer-content>nav>ul >li> a:hover {
+    text-decoration: underline; /* 鼠标悬停时添加下划线 */
+  }
+  @media (max-width: 768px) {
+    .footer-content {
+        width: 100%; /* 在小屏幕上宽度为100% */
+    }
+  
+    nav ul li {
+        display: block; /* 在小屏幕上列表项垂直排列 */
+        margin-bottom: 5px;
+    }
+  }
+  
+  
+  

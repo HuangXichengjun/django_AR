@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}AR{% endblock %}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/basic.css' %}" />
+        {% block extra_css %}
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="nav">
+            <ul class="nav_ul">
+                <li class="li_1"><a href="{% url 'index' %}">首页</a>
+                    <ul class="content">
+                        <li><a href="{% url 'index' %}">首页</a></li>
+                    </ul>
+                </li>
+                <li class="index_2_inner"><a href="../static/html/光学显示技术.html">技术</a>
+                <ul class="content">
+                    <li><a href="../static/html/光学显示技术.html">技术</a></li>
+                    <li><a href="../static/html/光学显示技术.html">光学显示技术</a></li>
+                    <li><a href="../static/html/实时跟踪.html">实时跟踪</a></li>
+                    <li><a href="../static/html/交互与传感.html">交互与传感</a></li>
+                    <li><a href="../static/html/硬件.html">硬件</a></li>
+                </ul>
+                </li>
+                <li class="index_3_inner"><a href="../static/html/AR眼镜.html">产品</a>
+                <ul class="content">
+                    <li><a href="../static/html/AR眼镜.html">产品</a></li>
+                    <li><a href="../static/html/AR眼镜.html">AR眼镜</a></li>
+                    <li><a href="../static/html/分体式AR眼镜.html">分体式AR眼镜</a></li>
+                    <li><a href="../static/html/AR头显.html">AR头显</a></li>
+                    <li><a href="../static/html/AR应用.html">AR应用</a></li>
+                    <li><a href="../static/html/专业级AR设备.html">专业级AR设备</a></li>
+                </ul>
+                </li>
+                <li class="li_2"><a href="{% url 'list' %}">论坛</a>
+                    <ul class="content">
+                        <li><a href="{% url 'list' %}">论坛</a></li>
+                    </ul>
+                </li>
+                <li class="li_3"><a href="{% url 'login' %}" >登录</a>
+                    <ul class="content">
+                        <li><a href="{% url 'login' %}">登录</a></li>
+                    </ul>
+                </li>
+                <li class="li_4"><a href="{% url 'register' %}">注册</a>
+                    <ul class="content">
+                        <li><a href="{% url 'register' %}">注册</a></li>
+                    </ul>
+                </li>
+                <li class="li_5">
+                    <form action="{% url 'log_out' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">注销</button>
+                    </form>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="li_6"><a href="{% url 'user_profile' %}">个人信息</a>
+                    <ul class="content">
+                        <li><a href="{% url 'user_profile' %}">个人信息</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+            </ul>
+            </nav>
+        <main>
+        {% block content %}{% endblock %}
+        </main>
+    </body>
+</html>

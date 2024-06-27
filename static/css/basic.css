@@ -1,0 +1,125 @@
+.nav {
+    height: 60px;
+    background-color: #062d40;
+    display: flex;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+.nav_ul {
+    padding: 0; /*移除列表的内边距*/
+    list-style-type: none;  /*移除列表项前的项目符号。*/
+    display: flex;
+    width: 100%;
+  }
+  
+.nav_ul li {
+    display: inline;  /*将列表项显示为内联元素*/
+    text-align: center; /*使列表项内的文字居中显示*/
+    height: 100%;
+    width: 100%;
+  }
+  
+.nav_ul a {
+    display: inline-block;  /*将链接显示为内联块元素，允许设置宽度和高度*/
+    font-size: 1.5rem;  /*设置链接文字的大小为2倍根元素大小*/
+    text-decoration: none; /*移除链接的下划线*/
+    color: rgb(245, 241, 241);
+    transition-duration: 200ms; /* 设置链接在悬停时颜色变化的过渡时间为200毫秒*/
+    height: 100%;
+    width: 100%;
+  }
+.nav_ul a:hover {
+    color: white; /*当鼠标悬停在链接上时，将链接文字的颜色变为白色*/
+    text-shadow: 0 0 10px wheat; /*添加文字阴影效果，颜色为小麦色，模糊半径为10像素。*/
+    transition-duration: 200ms; /* 设置悬停效果的过渡时间为200毫秒*/
+    background-color: #ff6666;
+  }
+.index_2_inner,.index_3_inner{
+    position: relative; /* 设置定位，以便下拉内容可以绝对定位在触发元素上 */
+    cursor: pointer;
+    height: 100%;
+}
+.index_2_inner a,.index_3_inner a{
+    cursor: pointer;/* 鼠标悬停时鼠标指针变为指针形状 */
+    height: 100%;
+}
+.content{
+    display: none;
+    position: absolute; /* 绝对定位，相对于父容器定位 */
+    left: 0; /* 下拉内容左边界对齐触发元素 */
+    top: 0; /* 下拉内容顶部对齐触发元素顶部 */
+    background-color: #062d40; /* 下拉内容背景色 */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 添加阴影效果 */
+    z-index: 1000; /* 确保下拉内容在页面上层显示 */
+    padding: 0;
+    border: #ff6666;
+    overflow: hidden;
+}
+.index_2_inner:hover .content,.index_3_inner:hover .content{
+    animation: slideDown ease-out 0.1s;
+    left: 0;
+    opacity: 8;
+    display: block;
+    -webkit-animation: slideDown ease-out 0.1s;
+}
+  @keyframes slideDown {
+    0% {
+        opacity: 0;
+        top: -8px;
+    }
+    100% {
+        opacity: .8;
+        top: 0;
+    }
+}
+.index_2_inner .content li,.index_3_inner .content li
+{
+    display: inline;
+    text-align: center; /*使列表项内的文字居中显示*/
+    height: 100%;
+}
+.index_2_inner .content a,.index_3_inner .content a{
+    display: inline-block;
+    text-transform: lowercase;
+    text-decoration: none;
+    transition-duration: 200ms;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.content li:first-child {
+  padding-bottom: 12px;
+  border-top: none !important;}
+.content a:hover{
+  background-color: #ff6666;
+}
+
+.li_5 form{
+  display: inline-block;  /*将链接显示为内联块元素，允许设置宽度和高度*/
+  font-size: 1.5rem;  /*设置链接文字的大小为2倍根元素大小*/
+  text-decoration: none; /*移除链接的下划线*/
+  color: rgb(245, 241, 241);
+  transition-duration: 200ms; /* 设置链接在悬停时颜色变化的过渡时间为200毫秒*/
+  height: 100%;
+  width: 100%;
+}
+.li_5 button{
+  width:100%;
+  height:100%;
+  background-color: #062d40;
+  font-size: 1.5rem;
+  color: #fff;
+  background: none; /* 移除背景色 */
+  border: none; /* 移除边框 */
+  outline: none; /* 移除点击时的轮廓 */
+  box-shadow: none; /* 移除阴影效果 */
+  padding: 0; /* 可以设置为0或者根据需要调整内边距 */
+  margin: 0; /* 可以设置为0或者根据需要调整外边距 */
+  cursor: pointer; /* 鼠标悬停时显示手形图标 */
+}
+.li_5 button:hover{
+  color: white; /*当鼠标悬停在链接上时，将链接文字的颜色变为白色*/
+  text-shadow: 0 0 10px wheat; /*添加文字阴影效果，颜色为小麦色，模糊半径为10像素。*/
+  transition-duration: 200ms; /* 设置悬停效果的过渡时间为200毫秒*/
+  background-color: #ff6666;
+}

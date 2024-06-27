@@ -1,0 +1,14 @@
+<!-- registration/register.html -->
+{% extends 'basic.html' %}
+{% block title %}<title>Register</title>{% endblock %}
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}" />
+{% endblock %}   <!--Django 跨站点伪造保护的一部分-->
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}

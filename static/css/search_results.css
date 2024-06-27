@@ -1,0 +1,32 @@
+.forum1 {
+    display: flex;
+    flex-wrap: wrap;/* 使元素直接换到下一行 */
+    margin: 20px;/* 所有四个边距都为20px */
+    align-items: center;
+}
+
+.thread {
+    
+    border: 1px solid #ddd;
+    /* margin-right: 20px; */
+    /* margin-left: 50px; */
+    margin: auto;/* 居中 */
+    margin-top: 30px;
+    padding: 10px;
+    width: calc(50% - 20px);/* 父类元素宽度-20px */
+}
+.thread>li{
+    list-style-type:none;
+}
+.title1{
+    margin-top: 0;
+}
+
+.name1 {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.content1 {
+    margin-top: 10px;
+}

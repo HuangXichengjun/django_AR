@@ -1,0 +1,95 @@
+header{
+    background-color: #3d9629;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+.forum1 {
+    display: flex;
+    flex-wrap: wrap;/* 使元素直接换到下一行 */
+    margin: 20px;/* 所有四个边距都为20px */
+    align-items: center;
+}
+
+.thread {
+    
+    border: 1px solid #ddd;
+    /* margin-right: 20px; */
+    /* margin-left: 50px; */
+    margin: auto;/* 居中 */
+    margin-top: 30px;
+    padding: 10px;
+    width: calc(50% - 20px);/* 父类元素宽度-20px */
+}
+.thread>li{
+    list-style-type:none;
+}
+.title1{
+    margin-top: 0;
+}
+
+.name1 {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.content1 {
+    margin-top: 10px;
+}
+.submit, .mine {
+    display: flex;           /* 启用 Flexbox */
+    align-items: center;      /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    padding: 10px 20px;      /* 内边距 */
+    text-decoration: none;    /* 移除下划线 */
+    color: #fff;             /* 文字颜色 */
+    background-color: #007bff; /* 背景颜色 */
+    border-radius: 4px;      /* 圆角边框 */
+    transition: background-color 0.3s; /* 背景颜色变化的过渡效果 */
+}
+
+/* 鼠标悬停效果 */
+.submit:hover, .mine:hover {
+    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+}
+.container {
+    display: flex;           /* 启用 Flexbox */
+    justify-content: space-between; /* 左右对齐子元素 */
+    align-items: center;      /* 垂直居中对齐 */
+}
+/* 链接和输入框样式 */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px; /* 外边距 */
+}
+
+/* 搜索输入框样式 */
+#keyword {
+    padding: 10px; /* 内边距 */
+    font-size: 16px; /* 字体大小 */
+    border: 2px solid #ccc; /* 边框 */
+    border-radius: 4px; /* 圆角边框 */
+    outline: none; /* 点击时无轮廓 */
+    transition: border-color 0.3s; /* 边框颜色变化的过渡效果 */
+}
+#keyword:focus {
+    border-color: #007bff; /* 点击时边框颜色 */
+}
+
+/* 搜索按钮样式 */
+button {
+    padding: 10px 20px; /* 内边距 */
+    margin-left: 10px; /* 与输入框的间距 */
+    font-size: 16px; /* 字体大小 */
+    color: white; /* 文字颜色 */
+    background-color: #007bff; /* 背景颜色 */
+    border: none; /* 无边框 */
+    border-radius: 4px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标悬停时显示指针手势 */
+    transition: background-color 0.3s; /* 背景颜色变化的过渡效果 */
+}
+button:hover {
+    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+}

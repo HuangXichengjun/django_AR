@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的贴子</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/mine_remark.css' %}" />
+</head>
+<body>
+    <header><h1 id="web_title">我的发布</h1></header>
+    <div class="forum">
+        {% for model in results %}
+            <ul class="thread">
+                <li class="title1">{{model.title}}</li>
+                <li class="content1">{{model.content}}</li>
+                <li class="name1">{{model.name}}</li>
+                <li class="time1">{{model.created_at}}</li>
+                <div class="edit">
+                    <a href="{% url 'delete_remark' %}"><div class="round-box">删除</div></a>    <!--此处a中连接为修改页面-->
+                    <a href="{% url 'change_remark' %}"><div class="round-box">修改</div></a>
+                </div>
+            </ul>
+        {% empty %}
+            <li class="none">您还没有发布过任何作品</li>
+        {% endfor %}
+    </div>
+</body>
+</html>

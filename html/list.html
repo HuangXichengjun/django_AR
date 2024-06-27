@@ -1,0 +1,62 @@
+<!-- list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>论坛</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/list.css' %}" />
+</head>
+<body>
+    <header><h1 id="web_title">You can talk the AR with people from all walks of life in there:</h1></header>
+    <div class="container">
+        <a href="{% url 'add' %}"><div class="submit">发布作品</div></a>
+        <a href="{% url 'mine_remark' %}"><div class="mine">我的贴子</div></a>
+        <div class="search-container">
+            <input type="text" id="keyword" placeholder="Enter keyword">
+            <button onclick="performSearch()">Search</button>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function performSearch() {
+            var keyword = document.getElementById('keyword').value;
+            // 使用Ajax发送GET请求到后端
+            $.ajax({
+                url: '../search_results/', // 假设这是你的Django视图URL
+                type: 'GET',
+                data: { keyword: keyword },
+                success: function(data) {
+                    // 假设后端返回的是完整的HTML页面
+                    document.getElementById('results').innerHTML = data;
+                },
+                error: function() {
+                    alert('Error occurred during the search.');
+                }
+            });
+        }
+    </script>
+    <div id="results">
+        <div class="forum1">
+            {% for model in models %}
+            <ul class="thread">
+                <li class="title1">{{model.title}}</li>
+                <li class="content1">{{model.content}}</li>
+                <li class="name1">{{model.name}}</li>
+                <li class="time1">{{model.created_at}}</li>
+            </ul>
+            {% empty %}
+                <li>没有任何帖子</li>
+            {% endfor %}
+        </div>
+        <script>
+            document.querySelectorAll('.thread').forEach(thread => {
+                thread.addEventListener('click', () => {
+                const content = thread.querySelector('.content1');
+                content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
