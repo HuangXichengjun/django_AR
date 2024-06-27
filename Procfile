@@ -1,0 +1,1 @@
+web: gunicorn arWeb.wsgi --log-file -
